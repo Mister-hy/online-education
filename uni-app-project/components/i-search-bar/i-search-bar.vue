@@ -9,7 +9,7 @@
 
 <script>
 	export default {
-		name:"i-search-bar",
+		// name:"i-search-bar",
 		data() {
 			return {
 				

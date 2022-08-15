@@ -15,6 +15,7 @@
 /* 宽度 */
 /* #ifndef APP-PLUS-NVUE */
 .w-100{ width: 100%; }
+.w-12{ width:120rpx; }
 /* #endif */
 
 .row {
@@ -335,8 +336,8 @@
   border-top-color: #dee2e6;
 }
 .border-right {
-  border-right-width: 1rpx;
-  border-right-style: solid;
+  border-right-width: 4rpx;
+  border-right-style: dashed;
   border-right-color: #dee2e6;
 }
 .border-bottom {
@@ -398,6 +399,7 @@
 .d-none{ display: none; }
 .d-inline-block{ display: inline-block; }
 .d-block{ display: block; }
+.d-inline-flex{ display: inline-flex; }
 /* #endif */
 /* 内容溢出 */
 .overflow-hidden { overflow: hidden;}
