@@ -14,7 +14,10 @@
 			<Hynav :iconNavList="iconNavList"></Hynav>
 			<!-- 优惠卷 -->
 			<hycoupon></hycoupon>
-			
+			<!-- 拼团 -->
+			<Hydougn></Hydougn>
+			<!-- 最新列表 -->
+			<Hylatest :latestList="latestList"></Hylatest>
 	</view>
 </template>
 
@@ -23,11 +26,15 @@
 	import Hysearch from '@/components/i-search-bar/i-search-bar.vue'
 	import Hynav from '@/components/i-icon-nav/i-icon-nav.vue'
 	import Hycoupon from '@/components/i-coupon-list/i-coupon-list.vue'
+	import Hydougn from '@/components/i-dougn-list/i-dougn-list.vue'
+	import Hylatest from '@/components/i-latest-list/i-latest-list.vue'
 	export default {
 		data() {
 			return {
 			 swiperList:[],	
-			 iconNavList:[]
+			 iconNavList:[],
+			 dougnList:[],
+			 latestList:[],
 			}
 		},
 		onLoad() {
@@ -40,16 +47,19 @@
 		// 首页数据
         async getData(){
 			let {data} = await http()
-			console.log(data)
+			// console.log(data)
 			this.swiperList=data[1].data
 			this.iconNavList=data[2].data
-			// console.log(this.iconNavList)
+			this.latestList=data[5].data
+		    console.log(this.latestList)
 		}
 		},
 		components:{
 			Hysearch,
 			Hynav,
-			Hycoupon
+			Hycoupon,
+			Hylatest,
+			Hydougn
 		}
 	}
 </script>

@@ -16,8 +16,14 @@
 /* #ifndef APP-PLUS-NVUE */
 .w-100{ width: 100%; }
 .w-12{ width:120rpx; }
+.w-40{ width:400rpx; }
 /* #endif */
-
+/* 高度 */
+/* #ifndef APP-PLUS-NVUE */
+.h-100{ height: 100%; }
+.h-12{ height:120rpx; }
+.h-20{ height:200rpx; }
+/* #endif */
 .row {
   margin-right: -20rpx;
   margin-left: -20rpx;
@@ -150,6 +156,9 @@
 .mt-3 { margin-top: 30rpx; }
 .mt-4 { margin-top: 40rpx; }
 .mt-5 { margin-top: 50rpx; }
+.mt-6 { margin-top: 60rpx; }
+.mt-7 { margin-top: 70rpx; }
+.mt-8 { margin-top: 80rpx; }
 .mb-0 { margin-bottom: 0; }
 /* #ifndef APP-PLUS-NVUE */
 .mb-auto { margin-bottom: auto; }
