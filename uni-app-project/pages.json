@@ -16,14 +16,25 @@
 		{
 			"path": "pages/my/my",
 			"style": {
+				"app-plus": {
+					"titleNView": {"titleText": "我的","titleAlign": "left"}
+				}
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"app-plus": {
+					"titleNView": {"titleText": "","titleAlign": "left"}
+				}
 			}
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "在线教育",
-		"navigationBarBackgroundColor": "#000",
-		"backgroundColor": "#000"
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {
 		"color": "#BBBAC7",

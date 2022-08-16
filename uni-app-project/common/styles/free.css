@@ -413,6 +413,7 @@
 /* #endif */
 /* 内容溢出 */
 .overflow-hidden { overflow: hidden;}
+.overflow-auto { overflow: auto;}
 /* 定位 */
 .position-relative { position: relative;}
 .position-absolute { position: absolute;}

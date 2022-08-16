@@ -1,5 +1,5 @@
 <template>
-	<view class="h-100 bg-main">
+	<view class="h-100 bg-main overflow-auto">
 			<!-- 搜索框 -->
 		<!-- <f-search-bar></f-search-bar> -->
 		<Hysearch></Hysearch>
