@@ -41,9 +41,9 @@
 				</template>
 			</Hypopular>
 			<!-- 尾部图片-->
-			<footer class='position bottom-5 left-0 w-100'>
+<!-- 			<footer class='position bottom-5 left-0 w-100'>
 				<image src="@/static/noLogin.png" mode="" class="w-100"></image>
-			</footer>
+			</footer> -->
 	</view>
 </template>
 

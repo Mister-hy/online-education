@@ -12,9 +12,11 @@
 	   	 </view>
 	   </view>
 	   <view class="order">
-	   		<view class="li" v-for="item in orderList" :key="item.id">
-	   			<i :class="item.icon"></i>
-	   			<text>{{item.title}}</text>
+	   		<view class="" v-for="item in orderList" :key="item.id">
+	   			<view class="li">
+	   			  	<i :class="item.icon"></i>
+	   			  	<text>{{item.title}}</text>
+	   			</view>
 	   		</view>   
 	   </view>
 	 <view class="my-content">
@@ -118,10 +120,18 @@
 	z-index: 20 !important;
 }
 .order .li{
-	flex: 1;
-	height: 150rpx;
-	text-align: center;
-	line-height: 150rpx;
+ display: flex;
+ flex-direction: column;
+ height: 150rpx;
+ justify-content: center;
+ width: 168rpx;
+ text-align: center;
+ color: #6c757d;
+ font-size: 28rpx;
+}
+.li i{
+	color: #febe23;
+	margin-bottom: 10rpx;
 }
 .my-content .li{
 	display: flex;
