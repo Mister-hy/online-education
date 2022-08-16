@@ -11,7 +11,7 @@
 		</swiper>
 			<!-- 图标分类 -->
 			<!-- <icon-nav :iconNavList="iconNavList"> </icon-nav> -->
-			<Hynav :iconNavList="iconNavList"></Hynav>
+			<Hynav :iconNavList="iconNavList" @navJump='navJump'></Hynav>
 			<!-- 优惠卷 -->
 			<hycoupon></hycoupon>
 			<!-- 拼团 -->
@@ -82,6 +82,11 @@
 			this.latestList=data[5].data
 			this.popularList=data[5].data
 		    // console.log(this.latestList)
+		},
+		navJump(item){
+			if(item==='考试'){
+				this.$router.push('/pages/test-list/test-list')
+			}
 		}
 		},
 		components:{

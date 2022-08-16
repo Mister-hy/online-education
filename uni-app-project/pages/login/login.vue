@@ -1,9 +1,9 @@
 <template>
 	 <view class="container">
 	<view class="loginHeader">
-		<view class="img">
+		<!-- <view class="img">
 			<image src="../../static/demo/icon/小于号.png" mode=""></image>
-		</view>
+		</view> -->
 	</view>
 	<view class="login">
 		<view class="login-from">

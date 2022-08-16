@@ -5,7 +5,7 @@
 				<slot name="dough"></slot>
 				</view>
 				<view class="flex">	
-				<!-- <scroll-view scroll-y="true" class="scroll-row"> -->
+				<!-- <scroll-view scroll-x="true" class="scroll-row"> -->
 				<view class="dougn" v-for="(item,i) in dougnList" >					
 					<view class="p-1">
 						<view class="w-100 h-100">

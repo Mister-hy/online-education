@@ -1,8 +1,7 @@
 <template>
-	<view class="search-bar py-2 px-1">
+	<view class="search-bar">
 		<view class="search-bar-item py-2 flex align-center justify-center">
-			<!-- <uni-icons color="#928E8A" type="search" size="20"></uni-icons> -->
-			<i class="iconfont icon-test"></i>
+					  <icon type="search" size="18"/>
 			<text class="title ml-2 font">请输入搜索的关键词</text>
 		</view>
 	</view>
@@ -20,6 +19,11 @@
 </script>
 
 <style>
+.search-bar{
+	width: 90%;
+	margin: 0 auto;
+	padding: 20rpx 10rpx;
+}
 .search-bar-item{
 	height : 100%;
 	background-color: #f5f5f3;

@@ -31,6 +31,14 @@
 					"titleNView": {"titleText": "","titleAlign": "left"}
 				}
 			}
+		},
+		{
+			"path": "pages/test-list/test-list",
+			"style": {
+				"app-plus": {
+					"titleNView": {"titleText": "考场列表","titleAlign": "left"}
+				}
+			}
 		}
 	],
 	"globalStyle": {
