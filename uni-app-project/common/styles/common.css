@@ -2,7 +2,8 @@
  * 主背景色
  */
 .bg-main{
-	background-color: #5ccc84;
+	background-color: #f5f5f3;
+	height: 100vh;
 }
 
 /**

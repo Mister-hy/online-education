@@ -1,7 +1,7 @@
 <template>
-	<view class="p-2">
+	<view class="p-2 bg-white">
 		<scroll-view scroll-x="true" class="scroll-row">
-			<view v-for="(item,i) in 3" :key="i" class="d-inline-flex text-white mr-3">
+			<view v-for="(item,i) in 3" :key="i" class="d-inline-flex text-white mr-3 ">
 				<view class="flex align-center justify-center p-2 flex-column border-right-4 bg-hover-warning text-white border-right">
 					<text>￥4.00</text>
 					<text>适用课程：中级经济法-知识点精讲课</text>

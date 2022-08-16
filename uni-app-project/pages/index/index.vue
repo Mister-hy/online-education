@@ -1,5 +1,5 @@
 <template>
-	<view class="container">
+	<view class="h-100 bg-main">
 			<!-- 搜索框 -->
 		<!-- <f-search-bar></f-search-bar> -->
 		<Hysearch></Hysearch>
@@ -15,9 +15,35 @@
 			<!-- 优惠卷 -->
 			<hycoupon></hycoupon>
 			<!-- 拼团 -->
-			<Hydougn></Hydougn>
+			<Hydougn :dougnList="dougnList">
+				<template slot="dough">
+					<view>
+						拼团
+					</view>
+				</template>
+			</Hydougn>
 			<!-- 最新列表 -->
-			<Hylatest :latestList="latestList"></Hylatest>
+			<Hylatest :latestList="latestList">
+				<template slot="latestList">
+					<view>最新列表</view>
+				</template>
+				<template slot="seeMore">
+					<text class="text text-light-muted">查看更多</text>
+				</template>
+			</Hylatest>
+			<!-- 热门推荐 -->
+			<Hypopular :popularList="popularList">
+				<template slot="popular">
+					<view>热门推荐</view>
+				</template>
+				<template slot="viewAll">
+					<text class="text text-light-muted">查看全部</text>
+				</template>
+			</Hypopular>
+			<!-- 尾部图片-->
+			<footer class='position bottom-5 left-0 w-100'>
+				<image src="@/static/noLogin.png" mode="" class="w-100"></image>
+			</footer>
 	</view>
 </template>
 
@@ -28,6 +54,7 @@
 	import Hycoupon from '@/components/i-coupon-list/i-coupon-list.vue'
 	import Hydougn from '@/components/i-dougn-list/i-dougn-list.vue'
 	import Hylatest from '@/components/i-latest-list/i-latest-list.vue'
+	import Hypopular from '@/components/i-popular-list/i-popular-list.vue'
 	export default {
 		data() {
 			return {
@@ -35,6 +62,7 @@
 			 iconNavList:[],
 			 dougnList:[],
 			 latestList:[],
+			 popularList:[],
 			}
 		},
 		onLoad() {
@@ -47,11 +75,13 @@
 		// 首页数据
         async getData(){
 			let {data} = await http()
-			// console.log(data)
+			console.log(data)
 			this.swiperList=data[1].data
 			this.iconNavList=data[2].data
+			this.dougnList=data[5].data
 			this.latestList=data[5].data
-		    console.log(this.latestList)
+			this.popularList=data[5].data
+		    // console.log(this.latestList)
 		}
 		},
 		components:{
@@ -59,7 +89,8 @@
 			Hynav,
 			Hycoupon,
 			Hylatest,
-			Hydougn
+			Hydougn,
+			Hypopular
 		}
 	}
 </script>

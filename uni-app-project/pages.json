@@ -20,10 +20,10 @@
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "积云在线教育",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "在线教育",
+		"navigationBarBackgroundColor": "#000",
+		"backgroundColor": "#000"
 	},
 	"tabBar": {
 		"color": "#BBBAC7",
