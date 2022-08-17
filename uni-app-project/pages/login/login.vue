@@ -5,7 +5,7 @@
 			<image src="../../static/demo/icon/小于号.png" mode=""></image>
 		</view> -->
 	</view>
-	<view class="login">
+	<view class="login" v-if="show">
 		<view class="login-from">
 			<view class="h3 mb-5">
 				登录
@@ -30,7 +30,48 @@
 			<text>登录</text>
 		</view>
 		<view class="flex justify-between mt-7">
-			<text class="text-success">注册账号</text>
+			<text class="text-success" @click="user">注册账号</text>
+			<text class="wPwd">忘记密码?</text>
+		</view>
+		<view class="WeChat">
+			<view class="image">
+				<image src="../../static/demo/icon/wx.png" mode=""></image>
+			</view>
+		</view>
+	</view>
+	<view class="login" v-else>
+		<view class="login-from">
+			<view class="h3 mb-5">
+				注册
+			</view>
+			<view class="from-username">
+				<input class="from-ipt"  placeholder="请输入用户名">
+				</input>
+				<view class="userImg">
+					<image src="../../static/tabbar/my.png" mode=""></image>
+				</view>
+			</view>
+			
+			<view class="from-username">
+				<input class="from-ipt"  placeholder="请输入密码">
+				</input>
+				<view class="userImg">
+					<image src="../../static/tabbar/learn.png" mode=""></image>
+				</view>
+			</view>
+			<view class="from-username">
+				<input class="from-ipt"  placeholder="请输入确认密码">
+				</input>
+				<view class="userImg">
+					<image src="../../static/tabbar/learn.png" mode=""></image>
+				</view>
+			</view>
+		</view>
+		<view class="loginSubmit">
+			<text>去登录</text>
+		</view>
+		<view class="flex justify-between mt-7">
+			<text class="text-success" @click="goLogin">去登录</text>
 			<text class="wPwd">忘记密码?</text>
 		</view>
 		<view class="WeChat">
@@ -47,6 +88,23 @@
 </template>
 
 <script>
+	export default {
+		data(){
+			return{
+				show:false
+			}
+		},
+			
+		methods:{
+			user(){
+				
+				this.show = false
+			},
+			goLogin(){
+				this.show = true
+				}
+		}
+	}
 </script>
 
 <style scoped lang='scss'>

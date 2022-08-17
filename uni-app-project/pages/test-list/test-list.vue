@@ -26,7 +26,7 @@
 					{title:'关于1+1',time:'60分钟',classTotal:4,allTotal:100,passing:60,id:1,joinExam:false},
 					{title:'test',time:'60分钟',classTotal:0,allTotal:100,passing:60,id:2,joinExam:true},
 					{title:'关于1+1',time:'60分钟',classTotal:10,allTotal:101,passing:61,id:3,joinExam:true},
-					{title:'关于1+1',time:'60分钟',classTotal:0,allTotal:101,passing:61,id:4,joinExam:true}
+					{title:'关于1+1',time:'60分钟',classTotal:11,allTotal:101,passing:61,id:4,joinExam:true}
 				],
 			}
 		},
