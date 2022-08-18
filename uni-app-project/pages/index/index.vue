@@ -46,7 +46,7 @@
 
 <script>
 import sendRequest from '@/utils/request.js';
-import IndexModel from '@/indexModel/indexModel.js';
+import IndexModel from '@/api/indexModel.js';
 import {navigator} from '@/utils/navigate.js'
 export default {
 	data() {

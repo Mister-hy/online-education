@@ -118,9 +118,10 @@ export default {
     handleToRegister() {
       navigator("/pages/register/register");
     },
-    // 箭头跳转到我的
+    // 返回上个页面
     goPrevpage() {
-      switchTo("/pages/mine/mine");
+      // switchTo("/pages/mine/mine");
+	  uni.navigateBack()
     },
   },
 };

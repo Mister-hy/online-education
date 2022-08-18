@@ -89,7 +89,7 @@ export default {
 	justify-content: space-between;
 	height: 136rpx;
 	color: #fff;
-	font-size: 32rpx;
+	font-size: 36rpx;
 }
 .title-wrapper .circle {
 	font-weight: 500;
