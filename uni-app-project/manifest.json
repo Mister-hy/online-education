@@ -1,6 +1,6 @@
 {
-    "name" : "uni-app-project",
-    "appid" : "__UNI__8CE3CE8",
+    "name" : "online-education",
+    "appid" : "__UNI__293A5CA",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -50,7 +50,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wx93f509ef341fd139",
         "setting" : {
             "urlCheck" : false
         },

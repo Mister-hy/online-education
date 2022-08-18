@@ -1,0 +1,1 @@
+<scroll-view class="coupon-wrapper" scroll-x="true"><block wx:for="{{couponList}}" wx:for-item="item" wx:for-index="index" wx:key="goods_id"><view class="coupon-item"><view class="coupon-info"><view class="price">{{"￥"+item.price}}</view><view class="content">{{"适用课程："+item.value.title}}</view></view><view class="coupon-get">领取</view></view></block></scroll-view>

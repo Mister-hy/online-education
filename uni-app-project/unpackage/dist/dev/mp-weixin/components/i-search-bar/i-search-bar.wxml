@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['handleToSearchPage',['$event']]]]]}}" class="search-bar-item my-2 flex align-center justify-center" bindtap="__e"><view class="search-wrapper py-2 flex px-1"><uni-icons vue-id="9903527c-1" color="#928E8A" type="search" size="20" bind:__l="__l"></uni-icons><text class="title ml-2 font">请输入搜索关键字</text></view></view>

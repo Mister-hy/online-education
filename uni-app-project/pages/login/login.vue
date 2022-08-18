@@ -1,196 +1,242 @@
 <template>
-	 <view class="container">
-	<view class="loginHeader">
-		<!-- <view class="img">
-			<image src="../../static/demo/icon/小于号.png" mode=""></image>
-		</view> -->
-	</view>
-	<view class="login" v-if="show">
-		<view class="login-from">
-			<view class="h3 mb-5">
-				登录
-			</view>
-			<view class="from-username">
-				<input class="from-ipt"  placeholder="请输入用户名">
-				</input>
-				<view class="userImg">
-					<image src="../../static/tabbar/my.png" mode=""></image>
-				</view>
-			</view>
-			
-			<view class="from-username">
-				<input class="from-ipt"  placeholder="请输入密码">
-				</input>
-				<view class="userImg">
-					<image src="../../static/tabbar/learn.png" mode=""></image>
-				</view>
-			</view>
-		</view>
-		<view class="loginSubmit">
-			<text>登录</text>
-		</view>
-		<view class="flex justify-between mt-7">
-			<text class="text-success" @click="user">注册账号</text>
-			<text class="wPwd">忘记密码?</text>
-		</view>
-		<view class="WeChat">
-			<view class="image">
-				<image src="../../static/demo/icon/wx.png" mode=""></image>
-			</view>
-		</view>
-	</view>
-	<view class="login" v-else>
-		<view class="login-from">
-			<view class="h3 mb-5">
-				注册
-			</view>
-			<view class="from-username">
-				<input class="from-ipt"  placeholder="请输入用户名">
-				</input>
-				<view class="userImg">
-					<image src="../../static/tabbar/my.png" mode=""></image>
-				</view>
-			</view>
-			
-			<view class="from-username">
-				<input class="from-ipt"  placeholder="请输入密码">
-				</input>
-				<view class="userImg">
-					<image src="../../static/tabbar/learn.png" mode=""></image>
-				</view>
-			</view>
-			<view class="from-username">
-				<input class="from-ipt"  placeholder="请输入确认密码">
-				</input>
-				<view class="userImg">
-					<image src="../../static/tabbar/learn.png" mode=""></image>
-				</view>
-			</view>
-		</view>
-		<view class="loginSubmit">
-			<text>去登录</text>
-		</view>
-		<view class="flex justify-between mt-7">
-			<text class="text-success" @click="goLogin">去登录</text>
-			<text class="wPwd">忘记密码?</text>
-		</view>
-		<view class="WeChat">
-			<view class="image">
-				<image src="../../static/demo/icon/wx.png" mode=""></image>
-			</view>
-		</view>
-	</view>
-	<view class="footer">
-		<checkbox></checkbox>
-		<text>已阅读并同意用户协议&隐私声明</text>
-	</view>
-		</view>
+  <view class="container">
+    <view class="header px-2">
+      <!-- 返回箭头 -->
+      <view
+        class="jiantou iconfont icon-fanhuijiantou"
+        @click="goPrevpage"
+      ></view>
+    </view>
+    <!-- 登录表单 -->
+    <view class="login-wrapper">
+      <view class="title">登录</view>
+      <uni-forms ref="form" :modelValue="formData" :rules="rules">
+        <uni-forms-item name="username">
+          <view class="login-input">
+            <view class="icon-size"
+              ><text class="iconfont icon-user"></text
+            ></view>
+            <input
+              type="text"
+              v-model="formData.username"
+              placeholder="请输入姓名"
+            />
+          </view>
+        </uni-forms-item>
+        <uni-forms-item name="password">
+          <view class="login-input">
+            <view class="icon-size"
+              ><text class="iconfont icon-mima"></text
+            ></view>
+            <input
+              type="password"
+              v-model="formData.password"
+              placeholder="请输入密码"
+            />
+          </view>
+        </uni-forms-item>
+        <button class="login-button" @click="handleLogin">登录</button>
+      </uni-forms>
+      <!-- 注册账号   忘记密码 -->
+      <view class="regsiter-wrapper">
+        <text @click="handleToRegister">注册账号</text>
+        <text>忘记密码?</text>
+      </view>
+      <!-- 微信 -->
+      <view class="weixin-icon"
+        ><text class="iconfont icon-weixin"></text
+      ></view>
+      <!-- 同意微信证书 -->
+      <checkbox-group name="checkbox">
+        <label>
+          <checkbox class="round red" value="checkbox1" />
+          <text style="color: #a9a5b5">已阅读并同意用户协议&隐私声明</text>
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
 </template>
 
 <script>
-	export default {
-		data(){
-			return{
-				show:false
-			}
-		},
-			
-		methods:{
-			user(){
-				
-				this.show = false
+import { navigator, switchTo } from "../../utils/navigate.js";
+export default {
+  data() {
+    return {
+      	// 表单数据
+			formData: {
+				username: '',
+				password: ''
 			},
-			goLogin(){
-				this.show = true
+			rules: {
+				// 对name字段进行必填验证
+				username: {
+					rules: [
+						// {
+						// 	required: true,
+						// 	errorMessage: '请输入姓名'
+						// },
+						{
+							minLength: 3,
+							maxLength: 5,
+							errorMessage: '姓名长度在 {minLength} 到 {maxLength} 个字符'
+						}
+					]
+				},
+				// 对email字段进行必填验证
+				password: {
+					rules: [
+						// {
+						// 	required: true,
+						// 	errorMessage: '请输入邮箱'
+						// },
+						{
+							format: 'email',
+							errorMessage: '请输入正确的邮箱地址'
+						}
+					]
 				}
-		}
-	}
+			},
+      inputValue: "",
+    };
+  },
+  methods: {// 触发提交表单
+		handleLogin() {
+			this.$refs.form
+				.validate()
+				.then(res => {
+					console.log('表单数据信息：', res);
+				})
+				.catch(err => {
+					console.log('表单错误信息：', err);
+				});
+		},
+		// 单个input
+    onKeyInput: function (event) {
+      this.inputValue = event.target.value;
+    },
+    // 跳转到注册页面
+    handleToRegister() {
+      navigator("/pages/register/register");
+    },
+    // 箭头跳转到我的
+    goPrevpage() {
+      switchTo("/pages/mine/mine");
+    },
+  },
+};
 </script>
 
-<style scoped lang='scss'>
-	.loginHeader{
-		position: relative;
-		height: 220rpx;
-	    background-image: linear-gradient(120deg,#3bfdaf,#70d6f2);
-		.img{
-			width: 54rpx;
-			height:54rpx;
-			background-color: #fff;
-			image{
-				width: 100%;
-				height: 100%;
-			}
-		}
-	}
-	.login{
-		border-top-left-radius: 15px;
-		border-top-right-radius: 15px;
-		box-sizing: border-box;
-		padding: 55rpx 70rpx;
-		.login-from {
-			.from-username{
-				margin-bottom: 50rpx;
-				width: 615rpx;
-				height: 100rpx;
-				border-radius: 8rpx;
-				background-color: #f5f5f5;
-				padding-left: 100rpx;
-				box-sizing: border-box;
-				position: relative;
-				line-height: 100rpx;
-				.from-ipt{
-					padding-top: 30rpx;
-				}
-		}
-		.userImg{
-				width: 33rpx;
-				height: 36rpx;
-				position: absolute;
-				top: 10rpx;
-				left: 35rpx;
-				image{
-					width: 100%;
-					height: 100%;
-				}
-			}
-		}
-		.loginSubmit{
-			height: 100rpx;
-			background-color: #5bcb86;
-			text-align: center;
-			color: #fff;
-			line-height: 100rpx;
-			border-radius: 16rpx;
-		}
-		.WeChat{
-			margin-top: 70rpx;
-			height: 100rpx;
-			display: flex;
-			justify-content: center;
-			.image{
-				width: 100rpx;
-				height: 100rpx;
-				border: 2px solid #4ec079;
-				border-radius: 50%;
-				display: flex;
-				justify-content: center;
-				image{
-					width: 50rpx;
-					height: 40rpx;
-					margin-top: 30rpx;
-				}
-			}
-		}
-		.wPwd{
-			color: #a09e99;
-		}
-	}
-	.footer{
-		margin: 0 auto;
-		width: 550rpx;
-		text{
-			margin-left: 10rpx;
-			color: #a09e99;
-		}
-	}
+<style>
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.jiantou {
+  display: flex;
+  align-items: center;
+  height: 96rpx;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 40rpx;
+}
+.header {
+  height: 230rpx;
+  background-image: linear-gradient(120deg, #3bfdaf, #70d6f2);
+}
+.login-wrapper {
+  position: relative;
+  top: -26rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  height: calc(100vh - 230rpx);
+  padding: 0 65rpx;
+  z-index: 10;
+  /* background-color: pink; */
+  background-color: #ffffff;
+}
+.login-wrapper .title {
+  height: 160rpx;
+  display: flex;
+  align-items: center;
+  font-size: 46rpx;
+  letter-spacing: 16rpx;
+  box-sizing: border-box;
+  color: #000000;
+}
+.login-input {
+  border-radius: 12rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  border-radius: ;
+  padding-right: 10rpx;
+  background-color: #f5f5f5;
+  color: #bec0cd;
+  margin-bottom: 50rpx;
+}
+v-deep(.uni-input-input) {
+	background-color: #f5f5f5 !important;
+}
+.login-input .icon-size {
+  width: 100rpx;
+  height: 100rpx;
+  display: flex;
+  color: #000;
+  align-items: center;
+  justify-content: center;
+}
+.uni-input {
+  width: 490rpx;
+}
+.login-button {
+  color: #ffffff;
+  letter-spacing: 16rpx;
+  background-color: #5ccc84;
+}
+.regsiter-wrapper {
+  height: 165rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 34rpx;
+}
+.regsiter-wrapper text:nth-of-type(1) {
+  color: #5ccc84;
+}
+.regsiter-wrapper text:nth-of-type(2) {
+  color: #b1a5a0;
+}
+.weixin-icon {
+  width: 107rpx;
+  height: 107rpx;
+  margin: auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1rpx solid #5ccc84;
+}
+.icon-weixin {
+  font-size: 70rpx;
+  color: #5ccc84;
+}
+
+.checkbox {
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 12rpx;
+  border: 2rpx solid #2b7fd2;
+}
+checkbox-group {
+  height: 104rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+}
 </style>

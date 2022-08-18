@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "i-search-bar": "/components/i-search-bar/i-search-bar",
+    "i-swiper": "/components/i-swiper/i-swiper",
+    "i-nav-list": "/components/i-nav-list/i-nav-list",
+    "i-coupon": "/components/i-coupon/i-coupon"
+  }
+}
