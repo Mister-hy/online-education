@@ -38,8 +38,9 @@
 					"titleNView": false
 				}
 			}
-		}, {
-			"path": "pages/register/register",
+		},
+		{
+			"path": "pages/bind-phone/bind-phone",
 			"style": {
 				"app-plus": {
 					"titleNView": false
