@@ -10,17 +10,13 @@
     <!-- 登录表单 -->
     <view class="login-wrapper">
       <view class="title">登录</view>
-      <uni-forms ref="form" :modelValue="formData" :rules="rules">
+      <uni-forms ref="form" :modelValue="formData" >
         <uni-forms-item name="username">
           <view class="login-input">
             <view class="icon-size"
               ><text class="iconfont icon-user"></text
             ></view>
-            <input
-              type="text"
-              v-model="formData.username"
-              placeholder="请输入姓名"
-            />
+           <input type="text" v-model="formData.username" placeholder="请输入用户名" />
           </view>
         </uni-forms-item>
         <uni-forms-item name="password">
@@ -59,43 +55,41 @@
 
 <script>
 import { navigator, switchTo } from "../../utils/navigate.js";
+import UserModel from '@/api/userModel.js'
+import { setItem } from '@/utils/storage.js'
 export default {
   data() {
     return {
       	// 表单数据
 			formData: {
-				username: '',
-				password: ''
+				username: 'hanyang',
+				password: '1996413'
 			},
-			rules: {
-				// 对name字段进行必填验证
-				username: {
-					rules: [
-						// {
-						// 	required: true,
-						// 	errorMessage: '请输入姓名'
-						// },
-						{
-							minLength: 3,
-							maxLength: 5,
-							errorMessage: '姓名长度在 {minLength} 到 {maxLength} 个字符'
-						}
-					]
-				},
-				// 对email字段进行必填验证
-				password: {
-					rules: [
-						// {
-						// 	required: true,
-						// 	errorMessage: '请输入邮箱'
-						// },
-						{
-							format: 'email',
-							errorMessage: '请输入正确的邮箱地址'
-						}
-					]
-				}
-			},
+			// rules: {
+			// 	// 对username字段进行必填验证
+			// 	username: {
+			// 		rules: [
+			// 			// {
+			// 			// 	required: true,
+			// 			// 	errorMessage: '请输入姓名'
+			// 			// },
+			// 			{
+			// 				minLength: 3,
+			// 				maxLength: 5,
+			// 				errorMessage: '姓名长度在 {minLength} 到 {maxLength} 个字符'
+			// 			}
+			// 		]
+			// 	},
+			// 	// 对password字段进行必填验证
+			// 	password: {
+			// 		rules: [
+			// 			{
+			// 				format: 'password',
+			// 				errorMessage: '请输入正确的密码'
+			// 			}
+			// 		]
+			// 	}
+			// },
       inputValue: "",
     };
   },
@@ -103,8 +97,11 @@ export default {
 		handleLogin() {
 			this.$refs.form
 				.validate()
-				.then(res => {
-					console.log('表单数据信息：', res);
+				.then(async res => {
+					console.log('表单数据信息：', this.formData);
+					const response = await UserModel.toLogin(this.formData)
+					console.log(response)
+					// 存储
 				})
 				.catch(err => {
 					console.log('表单错误信息：', err);

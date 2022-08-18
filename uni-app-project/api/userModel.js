@@ -2,17 +2,19 @@ import Http from '@/utils/http.js'
 
 class UserModel extends Http {
 	// 账号登录
-	static toLogin() {
+	static toLogin(data) {
 		return Http.request({
 			url: '/mobile/login',
-			method: 'POST'
+			method: 'POST',
+			data
 		})
 	}
 	// 账号注册
-	static toRegister() {
+	static toRegister(data) {
 		return Http.request({
 			url: '/mobile/reg',
-			method: 'POST'
+			method: 'POST',
+			data
 		})
 	}
 	// 退出登录
@@ -66,4 +68,4 @@ class UserModel extends Http {
 	}
 }
 
-export default Http
+export default UserModel
