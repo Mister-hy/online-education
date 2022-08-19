@@ -17,6 +17,7 @@
 	@import url("@/common/styles/free.css");
 	@import url("@/common/styles/animate.min.css");
 	@import url("@/common/iconfont/iconfont.css");
+	@import url("@/common/styles/common.css");
 	/* icon阿里巴巴矢量库图标 */
 	@import url('@/static/iconfont/iconfont.css');
 	//设置圆角

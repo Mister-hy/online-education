@@ -7,7 +7,7 @@
 				<text class="circle"><uni-icons type="more-filled" color="white" size="30"></uni-icons></text>
 			</view>
 			<!-- 头像 -->
-			<view class="login-wrapper px-2">
+			<view class="mine-wrapper px-2">
 				<view class="avatar"><image src="../../static/demo/icon/ask.png" mode=""></image></view>
 				<view class="info">
 					<view class="login" @click="handleToLogin">立即登录</view>
@@ -94,27 +94,27 @@ export default {
 .title-wrapper .circle {
 	font-weight: 500;
 }
-.login-wrapper {
+.mine-wrapper {
 	height: 152rpx;
 	display: flex;
 	align-items: center;
 }
-.login-wrapper .avatar image {
+.mine-wrapper .avatar image {
 	width: 125rpx;
 	height: 125rpx;
 	margin-right: 50rpx;
 	border-radius: 50%;
 }
-.login-wrapper .info {
+.mine-wrapper .info {
 	color: #fff;
 	display: flex;
 	flex-direction: column;
 	padding: 20rpx 0;
 }
-.login-wrapper .login {
+.mine-wrapper .login {
 	font-size: 32rpx;
 }
-.login-wrapper .loginMore {
+.mine-wrapper .loginMore {
 	font-size: 24rpx;
 	margin-top: 24rpx;
 }

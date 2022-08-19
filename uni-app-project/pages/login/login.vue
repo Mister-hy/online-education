@@ -186,7 +186,9 @@ export default {
 			this.formData = {}
 			this.checkboxStatus = false 
 	        this.$store.dispatch("setToken", response.token)
-			uni.navigateBack({ delta:1 })
+			// uni.navigateBack({ delta:1 })
+			navigator('/pages/bind-phone/bind-phone')
+			uni.hideLoading()
 		} catch(err){
 			console.log(err)
 			
@@ -201,7 +203,7 @@ export default {
 			if(response === '用户名已存在'){ return false }
 			this.toggleStatus = true 
 			this.formData = {}
-			
+			uni.hideLoading()
 		} catch(err){
 		   console.log(err)
 		} finally{
@@ -228,116 +230,5 @@ export default {
 </script>
 
 <style>
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.jiantou {
-  display: flex;
-  align-items: center;
-  height: 96rpx;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 40rpx;
-}
-.header {
-  height: 230rpx;
-  background-image: linear-gradient(120deg, #3bfdaf, #70d6f2);
-}
-.login-wrapper {
-  position: relative;
-  top: -36rpx;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-top-left-radius: 40rpx;
-  border-top-right-radius: 40rpx;
-  height: calc(100vh - 230rpx);
-  padding: 0 65rpx;
-  z-index: 10;
-  /* background-color: pink; */
-  background-color: #ffffff;
-}
-.login-wrapper .title {
-  height: 160rpx;
-  display: flex;
-  align-items: center;
-  font-size: 46rpx;
-  letter-spacing: 16rpx;
-  box-sizing: border-box;
-  color: #000000;
-}
-.login-input {
-  border-radius: 12rpx;
-  height: 100rpx;
-  display: flex;
-  align-items: center;
-  border-radius: ;
-  padding-right: 10rpx;
-  background-color: #f5f5f5;
-  color: #bec0cd;
-  margin-bottom: 50rpx;
-}
-v-deep(.uni-input-input) {
-	background-color: #f5f5f5 !important;
-}
-.login-input .icon-size {
-  width: 100rpx;
-  height: 100rpx;
-  display: flex;
-  color: #000;
-  align-items: center;
-  justify-content: center;
-}
-.uni-input {
-  width: 490rpx;
-}
-.login-button {
-  color: #ffffff;
-  letter-spacing: 16rpx;
-  background-color: #5ccc84;
-}
-.regsiter-wrapper {
-  height: 165rpx;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 34rpx;
-}
-.regsiter-wrapper text:nth-of-type(1) {
-  color: #5ccc84;
-}
-.regsiter-wrapper text:nth-of-type(2) {
-  color: #b1a5a0;
-}
-.weixin-icon {
-  width: 107rpx;
-  height: 107rpx;
-  margin: auto;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  border: 1rpx solid #5ccc84;
-}
-.icon-weixin {
-  font-size: 70rpx;
-  color: #5ccc84;
-}
 
-.checkbox {
-  width: 34rpx;
-  height: 34rpx;
-  margin-right: 12rpx;
-  border: 2rpx solid #5ccc84;
-}
-checkbox-group {
-  height: 104rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26rpx;
-}
 </style>

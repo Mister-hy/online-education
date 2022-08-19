@@ -25,10 +25,11 @@ class UserModel extends Http {
 		})
 	}
 	// 获取手机验证码
-	static getPhoneCode() {
+	static getPhoneCode(data) {
 		return Http.request({
 			url: '/mobile/get_captcha',
-			method: 'POST'
+			method: 'POST',
+			data
 		})
 	}
 	// 绑定手机号
